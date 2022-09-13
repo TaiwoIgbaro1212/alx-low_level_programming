@@ -1,33 +1,41 @@
-#include "main.h"
+#include"main.h"
 
 /**
- * print_times_table - times table
+ * print_times_table - prints time table of n
  *
- * @n: integer
- * Return: Always 0
- */
+ * @n: takes number input
+*/
+
 void print_times_table(int n)
 {
-	int i;
-	int j;
+int prod, mult, num;
 
-	do
+	if (n <= 15 && n >= 0)
 	{
-		printf(
-		if ((n < 0) && (n > 15))
-	}
-	while ((n < 0) && (n > 15));
-
-	for (i = 0; i <= n; i++)
-	{
-		for (j = 0; j <= n; j++)
+		for (num = 0; num <= n; ++num)
 		{
-			int result = i * j;
-			_putchar(',');
-			_putchar(' ');
-			_putchar('0' + (result / 10));
-			_putchar('0' + (result % 10));
+			_putchar(48);
+			for (mult = 1; mult <= n; ++mult)
+			{
+				_putchar(',');
+				_putchar(' ');
+
+				prod = num * mult;
+
+				if (prod <= 9)
+					_putchar(' ');
+				if (prod <= 99)
+					_putchar(' ');
+
+				if (prod >= 100)
+				{
+					_putchar((prod / 100) + 48);
+					_putchar((prod / 10) % 10 + 48);
+				} else if (prod <= 99 && prod >= 10)
+					_putchar((prod / 10) + 48);
+				_putchar((prod % 10) + 48);
+			}
+			_putchar('\n');
 		}
 	}
-	_putchar('\n');
 }
